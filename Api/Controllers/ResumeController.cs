@@ -1,7 +1,6 @@
 ﻿using Api.Entities;
 using Api.Entities.ResumeDetails;
 using Api.Repositories;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Api.EndPoints;
 
