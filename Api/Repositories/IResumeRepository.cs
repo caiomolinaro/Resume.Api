@@ -11,23 +11,23 @@ public interface IResumeRepository
 
     Task<IEnumerable<AboutInfo>> GetAboutAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> GetSkillAsync();
+    Task<IEnumerable<SkillsInfo>> GetSkillAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> GetEducationalBackgroundAsync();
+    Task<IEnumerable<EducationalBackgroundInfo>> GetEducationalBackgroundAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> GetProfessionalExperienceAsync();
+    Task<IEnumerable<ProfessionalExperienceInfo>> GetProfessionalExperienceAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> GetLanguageAsync();
+    Task<IEnumerable<LanguageInfo>> GetLanguageAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> GetCoursesAsync();
+    Task<IEnumerable<CoursesInfo>> GetCoursesAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> GetCertificatesAsync();
+    Task<IEnumerable<CertificatesInfo>> GetCertificatesAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> GetProjectsAsync();
+    Task<IEnumerable<ProjectsInfo>> GetProjectsAsync(CancellationToken cancellationToken);
 
-    Task<ResumeEntity> CreateResumeAsync(ResumeEntity resumeEntity);
+    Task<int> CreateResumeAsync(ResumeEntity resumeEntity, CancellationToken cancellationToken);
 
-    Task<ResumeEntity> UpdateResumeAsync(ResumeEntity entity);
+    Task<int> UpdateResumeAsync(ResumeEntity resumeEntity, CancellationToken cancellationToken);
 
-    Task<ResumeEntity> DeleteResumeAsync(Guid id);
+    Task<int> DeleteResumeAsync(Guid id, CancellationToken cancellationToken);
 }

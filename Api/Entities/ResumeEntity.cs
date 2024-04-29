@@ -12,7 +12,7 @@ public class ResumeEntity
     public string? About { get; set; }
     public string[]? Skills { get; set; }
     public string[]? EducationalBackground { get; set; }
-    public string[]? ProfessionalExperice { get; set; }
+    public string[]? ProfessionalExperience { get; set; }
     public string[]? Language { get; set; }
     public string[]? Courses { get; set; }
     public string[]? Certificates { get; set; }

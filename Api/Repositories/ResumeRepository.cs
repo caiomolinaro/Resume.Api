@@ -47,53 +47,150 @@ public class ResumeRepository(NpgsqlDataSourceBuilder npgsqlDataSourceBuilder) :
         return personalInfoList;
     }
 
-    public async Task<ResumeEntity> GetSkillAsync()
+    public async Task<IEnumerable<SkillsInfo>> GetSkillAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "SELECT skills FROM \"resume\"";
+        var resumeEntities = await connection.QueryAsync<ResumeEntity>(query);
+
+        var skillsInfoList = resumeEntities.Select(entity => new SkillsInfo
+        {
+            Skills = entity.Skills
+        });
+
+        return skillsInfoList;
     }
 
-    public async Task<ResumeEntity> GetEducationalBackgroundAsync()
+    public async Task<IEnumerable<EducationalBackgroundInfo>> GetEducationalBackgroundAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "SELECT educationalbackground FROM \"resume\"";
+        var resumeEntities = await connection.QueryAsync<ResumeEntity>(query);
+
+        var educationalBackgroundInfoList = resumeEntities.Select(entity => new EducationalBackgroundInfo
+        {
+            EducationalBackground = entity.EducationalBackground
+        });
+
+        return educationalBackgroundInfoList;
     }
 
-    public async Task<ResumeEntity> GetProfessionalExperienceAsync()
+    public async Task<IEnumerable<ProfessionalExperienceInfo>> GetProfessionalExperienceAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "SELECT professionalexperience FROM \"resume\"";
+        var resumeEntities = await connection.QueryAsync<ResumeEntity>(query);
+
+        var professionalExperienceInfoList = resumeEntities.Select(entity => new ProfessionalExperienceInfo
+        {
+            ProfessionalExperience = entity.ProfessionalExperience
+        });
+
+        return professionalExperienceInfoList;
     }
 
-    public async Task<ResumeEntity> GetLanguageAsync()
+    public async Task<IEnumerable<LanguageInfo>> GetLanguageAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "SELECT language FROM \"resume\"";
+        var resumeEntities = await connection.QueryAsync<ResumeEntity>(query);
+
+        var languageInfoList = resumeEntities.Select(entity => new LanguageInfo
+        {
+            Language = entity.Language
+        });
+
+        return languageInfoList;
     }
 
-    public async Task<ResumeEntity> GetCoursesAsync()
+    public async Task<IEnumerable<CoursesInfo>> GetCoursesAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "SELECT courses FROM \"resume\"";
+        var resumeEntities = await connection.QueryAsync<ResumeEntity>(query);
+
+        var coursesInfoList = resumeEntities.Select(entity => new CoursesInfo
+        {
+            Courses = entity.Courses
+        });
+
+        return coursesInfoList;
     }
 
-    public async Task<ResumeEntity> GetCertificatesAsync()
+    public async Task<IEnumerable<CertificatesInfo>> GetCertificatesAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "SELECT certificates FROM \"resume\"";
+        var resumeEntities = await connection.QueryAsync<ResumeEntity>(query);
+
+        var certificatesInfoList = resumeEntities.Select(entity => new CertificatesInfo
+        {
+            Certificates = entity.Certificates
+        });
+
+        return certificatesInfoList;
     }
 
-    public async Task<ResumeEntity> GetProjectsAsync()
+    public async Task<IEnumerable<ProjectsInfo>> GetProjectsAsync(CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "SELECT projects FROM \"resume\"";
+        var resumeEntities = await connection.QueryAsync<ResumeEntity>(query);
+
+        var projectsInfoList = resumeEntities.Select(entity => new ProjectsInfo
+        {
+            Projects = entity.Projects
+        });
+
+        return projectsInfoList;
     }
 
-    public Task<ResumeEntity> CreateResumeAsync(ResumeEntity entity)
+    public async Task<int> CreateResumeAsync(ResumeEntity resumeEntity, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = @"INSERT INTO ""resume"" (id, name, address, phonenumber, email, linkedin, github,
+                    about, skills, educationalbackground, professionalexperience, language, courses, certificates, projects)
+                     VALUES (@Id, @Name, @Address, @PhoneNumber, @Email, @Linkedin, @GitHub, @About, @Skills, @EducationalBackground,
+                            @ProfessionalExperience, @Language, @Courses, @Certificates, @Projects)";
+        return await connection.ExecuteAsync(query, resumeEntity);
     }
 
-    public async Task<ResumeEntity> UpdateResumeAsync(ResumeEntity entity)
+    public async Task<int> UpdateResumeAsync(ResumeEntity resumeEntity, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = @"UPDATE ""resume"" SET
+                        name = @Name,
+                        address = @Address,
+                        phonenumber = @PhoneNumber,
+                        email = @Email,
+                        linkedin = @Linkedin,
+                        github = @GitHub,
+                        about = @About,
+                        skills = @Skills,
+                        educationalbackground = @EducationalBackground,
+                        professionalexperience = @ProfessionalExperience,
+                        language = @Language,
+                        courses = @Courses,
+                        certificates = @Certificates,
+                        projects = @Projects
+                        WHERE id = @Id";
+        return await connection.ExecuteAsync(query, resumeEntity);
     }
 
-    public async Task<ResumeEntity> DeleteResumeAsync(Guid id)
+    public async Task<int> DeleteResumeAsync(Guid id, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        await using var npgsqlDataSource = npgsqlDataSourceBuilder.Build();
+        using var connection = await npgsqlDataSource.OpenConnectionAsync(cancellationToken);
+        var query = "DELETE FROM \"resume\" WHERE id = @Id";
+        return await connection.ExecuteAsync(query, new { Id = id });
     }
 }

@@ -1,5 +1,4 @@
-﻿using Api.Infrastructure;
-using Api.Repositories;
+﻿using Api.Repositories;
 
 namespace Api.DependencyInjection;
 

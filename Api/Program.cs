@@ -30,6 +30,8 @@ if (app.Environment.IsDevelopment())
 
 app.MapControllers();
 
+app.UseStatusCodePages();
+
 app.UseHttpsRedirection();
 
 app.Run();
