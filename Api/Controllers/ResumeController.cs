@@ -8,6 +8,7 @@ namespace Api.EndPoints;
 [ApiController]
 public class ResumeController(IResumeRepository repository) : ControllerBase
 {
+    [Authorize]
     [HttpGet("GetFullResume")]
     public async Task<ActionResult<IEnumerable<ResumeEntity>>> GetFullResumeAsync(CancellationToken cancellationToken)
     {
@@ -128,6 +129,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [Authorize]
     [HttpPost("CreateResume")]
     public async Task<ActionResult> CreateResumeAsync([FromBody] ResumeEntity entity, CancellationToken cancellationToken)
     {
@@ -143,6 +145,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Created("", entity);
     }
 
+    [Authorize]
     [HttpPut("UpdateResume")]
     public async Task<ActionResult> UpdateResumeAsync([FromBody] ResumeEntity entity, CancellationToken cancellationToken)
     {
@@ -156,6 +159,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok();
     }
 
+    [Authorize]
     [HttpDelete("DeleteResume/{id:guid}")]
     public async Task<ActionResult> DeleteResumeAsync(Guid id, CancellationToken cancellationToken)
     {
