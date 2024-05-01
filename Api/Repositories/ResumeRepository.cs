@@ -24,6 +24,7 @@ public class ResumeRepository(NpgsqlDataSourceBuilder npgsqlDataSourceBuilder) :
         {
             Name = entity.Name,
             Address = entity.Address,
+            PhoneNumber = entity.PhoneNumber,
             Email = entity.Email,
             Linkedin = entity.Linkedin,
             GitHub = entity.GitHub

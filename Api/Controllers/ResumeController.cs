@@ -8,7 +8,7 @@ namespace Api.EndPoints;
 [ApiController]
 public class ResumeController(IResumeRepository repository) : ControllerBase
 {
-    [Authorize]
+    [AllowAnonymous]
     [HttpGet("GetFullResume")]
     public async Task<ActionResult<IEnumerable<ResumeEntity>>> GetFullResumeAsync(CancellationToken cancellationToken)
     {
@@ -21,6 +21,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetPersonalInfo")]
     public async Task<ActionResult<IEnumerable<PersonalInfo>>> GetPersonalInfoAsync(CancellationToken cancellationToken)
     {
@@ -33,6 +34,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetAboutInfo")]
     public async Task<ActionResult<IEnumerable<AboutInfo>>> GetAboutInfoAsync(CancellationToken cancellationToken)
     {
@@ -45,6 +47,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetSkillsAsync")]
     public async Task<ActionResult<IEnumerable<SkillsInfo>>> GetSkillsAsync(CancellationToken cancellationToken)
     {
@@ -57,6 +60,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetEducationalBackground")]
     public async Task<ActionResult<IEnumerable<EducationalBackgroundInfo>>> GetEducationalBackgroundAsync(CancellationToken cancellationToken)
     {
@@ -69,6 +73,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetProfessionalExperience")]
     public async Task<ActionResult<IEnumerable<EducationalBackgroundInfo>>> GetProfessionalExperienceAsync(CancellationToken cancellationToken)
     {
@@ -81,6 +86,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetLanguages")]
     public async Task<ActionResult<IEnumerable<EducationalBackgroundInfo>>> GetLanguagesAsync(CancellationToken cancellationToken)
     {
@@ -93,6 +99,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetCourses")]
     public async Task<ActionResult<IEnumerable<EducationalBackgroundInfo>>> GetCoursesAsync(CancellationToken cancellationToken)
     {
@@ -105,6 +112,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetCertificates")]
     public async Task<ActionResult<IEnumerable<EducationalBackgroundInfo>>> GetCertificatesAsync(CancellationToken cancellationToken)
     {
@@ -117,6 +125,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
+    [AllowAnonymous]
     [HttpGet("GetProjects")]
     public async Task<ActionResult<IEnumerable<EducationalBackgroundInfo>>> GetProjectsAsync(CancellationToken cancellationToken)
     {
@@ -130,6 +139,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
     }
 
     //[ApiExplorerSettings(IgnoreApi = true)]
+    //[Authorize]
     [HttpPost("CreateResume")]
     public async Task<ActionResult> CreateResumeAsync([FromBody] ResumeEntity entity, CancellationToken cancellationToken)
     {
@@ -146,7 +156,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
     }
 
     //[ApiExplorerSettings(IgnoreApi = true)]
-    [Authorize]
+    //[Authorize]
     [HttpPut("UpdateResume")]
     public async Task<ActionResult> UpdateResumeAsync([FromBody] ResumeEntity entity, CancellationToken cancellationToken)
     {
@@ -161,7 +171,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
     }
 
     //[ApiExplorerSettings(IgnoreApi = true)]
-    [Authorize]
+    //[Authorize]
     [HttpDelete("DeleteResume/{id:guid}")]
     public async Task<ActionResult> DeleteResumeAsync(Guid id, CancellationToken cancellationToken)
     {

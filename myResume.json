@@ -1,0 +1,54 @@
+{
+  "name": "Caio Henrique Molinaro Soares",
+  "address": "Rua Oscar Sudatti, 94, 09350-245, Mauá - SP",
+  "phoneNumber": "11 9 9929 2092",
+  "email": "cmolinaro19@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/caio-henrique-molinaro-soares-264567184/",
+  "gitHub": "https://github.com/caiomolinaro",
+  "about": "Sou um Desenvolvedor Backend C# .NET Júnior, busco primeira oportunidade dentro da área de desenvolvimento, possuo conhecimentos e habilidades no ecossistema de desenvolvimento .NET e afins, todas essas competências foram adquiridas através de cursos com certificado e projetos próprios.",
+  "skills": [
+    "C# .NET",
+    "ASP.NET Core Web API",
+    "ASP.NET Core MVC",
+    "Banco de dados SQL",
+    "Banco de dados NoSQL",
+    "Entity Framework Core",
+    "Dapper",
+    "AWS",
+    "Testes Unitários",
+    "Testes Integrados",
+    "Docker",
+    "Metodologias ágeis "
+  ],
+  "educationalBackground": [
+    "Curso Técnico em Informática - ETEC de Mauá - 2017-2018",
+    "Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas – Universidade Anhanguera – 2022 até 2024"
+  ],
+  "professionalExperience": [
+    "Universidade Anhanguera – Técnico em Informática (maio/2022 – Até o momento) - Funções: Formatação de computadores, manutenção, instalação de programas, configuração de computadores no Active Directory, instalação de impressoras, abertura e monitoramento de chamados via ServiceNow "
+  ],
+  "language": [
+    "Inglês - Intermediário"
+  ],
+  "courses": [
+    "C# Essencial - Udemy",
+    "ASP.NET Core MVC - Udemy",
+    "Web API ASP.NET Core",
+    "C# Aplicando princípios SOLID na prática",
+    "AWS Knowledge: Cloud Essentials - AWS",
+    "AWS Cloud Quest: Cloud Practioner - AWS",
+    "Docker essencial para a plataforma .NET - Udemy",
+    "Clean Architecture Essencial ASP.NET Core com C# = Udemy"
+  ],
+  "certificates": [
+    "AWS Knowledge: Cloud Essentials - AWS",
+    "AWS Cloud Quest: Cloud Practioner - AWS",
+    "Foundational C# With Microsoft - FreeCodeCamp"
+  ],
+  "projects": [
+    "https://github.com/caiomolinaro/Resume.Api",
+    "https://github.com/caiomolinaro/Notepad.API",
+    "https://github.com/caiomolinaro/Airbnb.API",
+    "https://github.com/caiomolinaro/BankApi"
+  ]
+}
