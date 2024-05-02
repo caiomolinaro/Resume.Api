@@ -35,7 +35,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpGet("GetAboutInfo")]
+    [HttpGet("GetAbout")]
     public async Task<ActionResult<IEnumerable<AboutInfo>>> GetAboutInfoAsync(CancellationToken cancellationToken)
     {
         var query = await repository.GetAboutAsync(cancellationToken);
@@ -48,7 +48,7 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpGet("GetSkillsAsync")]
+    [HttpGet("GetSkills")]
     public async Task<ActionResult<IEnumerable<SkillsInfo>>> GetSkillsAsync(CancellationToken cancellationToken)
     {
         var query = await repository.GetSkillAsync(cancellationToken);
@@ -138,8 +138,8 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok(query);
     }
 
-    //[ApiExplorerSettings(IgnoreApi = true)]
-    //[Authorize]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Authorize]
     [HttpPost("CreateResume")]
     public async Task<ActionResult> CreateResumeAsync([FromBody] ResumeEntity entity, CancellationToken cancellationToken)
     {
@@ -155,8 +155,8 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Created("", entity);
     }
 
-    //[ApiExplorerSettings(IgnoreApi = true)]
-    //[Authorize]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Authorize]
     [HttpPut("UpdateResume")]
     public async Task<ActionResult> UpdateResumeAsync([FromBody] ResumeEntity entity, CancellationToken cancellationToken)
     {
@@ -170,8 +170,8 @@ public class ResumeController(IResumeRepository repository) : ControllerBase
         return Ok();
     }
 
-    //[ApiExplorerSettings(IgnoreApi = true)]
-    //[Authorize]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Authorize]
     [HttpDelete("DeleteResume/{id:guid}")]
     public async Task<ActionResult> DeleteResumeAsync(Guid id, CancellationToken cancellationToken)
     {

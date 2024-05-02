@@ -17,7 +17,7 @@ public class TokenController : ControllerBase
         _configuration = configuration;
     }
 
-    //[ApiExplorerSettings(IgnoreApi = true)]
+    [ApiExplorerSettings(IgnoreApi = true)]
     [AllowAnonymous]
     [HttpPost("LoginUser")]
     public async Task<ActionResult<UserToken>> LoginAsync([FromBody] LoginEntity entity)
@@ -35,8 +35,8 @@ public class TokenController : ControllerBase
         }
     }
 
-    //[ApiExplorerSettings(IgnoreApi = true)]
-    //[Authorize]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [Authorize]
     [HttpPost("CreateUser")]
     public async Task<ActionResult> RegisterAsync([FromBody] RegisterEntity entity)
     {
